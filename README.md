@@ -431,3 +431,16 @@ Change the namespace to the docker one and get the pods list.
     kubectl create ns [name]
     kubectl get ns
     kubectl delete ns [name]
+
+
+# L20-03
+
+## Get nodes information
+
+Get a list of all the installed nodes. Using Docker Desktop, there should be only one.
+
+    kubectl get nodes
+
+Get some info about the node.
+
+    kubectl describe node
