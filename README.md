@@ -109,3 +109,207 @@ Detach from the instance:
     docker volume rm myvol
     docker stop voltest
     docker rm voltest
+
+
+# L09-04
+
+## Build the app
+
+    docker compose build
+
+## Run the app
+
+    docker compose up -d
+
+When the app will run, launch the voting app in your browser http://localhost:5000
+
+
+## List the containers
+
+    docker compose ps
+
+## Look at the db container logs
+
+    docker compose logs -f web-fe
+
+
+## Compose V2 commands
+
+LS will list the current projects
+
+    docker compose ls
+
+## Let's try to deploy a second version
+
+    docker compose up -d
+
+This fails because we can only run an app a single time
+
+## Deploy a second version using a different project name
+
+Let's now use a project name to see if we can deploy a second version
+
+    docker compose -p test up -d
+
+This fails because the localhost port 5000 is already assigned.
+
+Change the ports value from
+
+    - "5000:80"
+
+to
+
+    - "5001:80"
+
+## Deploy again
+
+    docker compose -p test up -d
+
+How many versions do we have running?
+
+    docker compose ls
+
+## Cleanup
+
+    docker compose down
+    docker compose ls
+    docker compose -p test down
+    docker compose ls
+
+
+# L09-04
+
+## Build the app
+
+    docker compose build
+
+## Run the app
+
+    docker compose up -d
+
+When the app will run, launch the voting app in your browser http://localhost:5000
+
+
+## List the containers
+
+    docker compose ps
+
+## Look at the db container logs
+
+    docker compose logs -f web-fe
+
+
+## Compose V2 commands
+
+LS will list the current projects
+
+    docker compose ls
+
+## Let's try to deploy a second version
+
+    docker compose up -d
+
+This fails because we can only run an app a single time
+
+## Deploy a second version using a different project name
+
+Let's now use a project name to see if we can deploy a second version
+
+    docker compose -p test up -d
+
+This fails because the localhost port 5000 is already assigned.
+
+Change the ports value from
+
+    - "5000:80"
+
+to
+
+    - "5001:80"
+
+## Deploy again
+
+    docker compose -p test up -d
+
+How many versions do we have running?
+
+    docker compose ls
+
+## Cleanup
+
+    docker compose down
+    docker compose ls
+    docker compose -p test down
+    docker compose ls
+
+
+# L10-03
+
+## Docker Hub
+
+Head to https://hub.docker.com and make sure you can log in.
+
+## Add a Dockerfile file
+
+Using the Code tooling, add a new Dockerfile by opening the Command Palette from the View menu.
+
+Type **Docker Add** and select **Docker Add Docker Files to Workspace**.
+
+## Tag using your Docker account name
+
+For the next commands, replace `<YourRegistryName>` with your registry name.
+
+## Build the image
+
+    docker build -t <YourRegistryName>/express:v1 .
+
+## Push the image
+
+    docker push <YourRegistryName>/express:v1
+
+## Docker Hub
+
+Back in hub.docker.com, locate the image you just pushed.
+
+## Pull the image from Docker Hub
+
+Let’s first delete the local image and pull it back from Docker Hub.
+
+## Remove the image
+
+    docker rmi <YourRegistryName>/express:v1
+
+## Pull the image
+
+    docker pull <YourRegistryName>/express:v1
+
+---
+
+## Create version 2
+
+Using the commands you learned earlier, build and push this new version to Docker Hub.
+
+## Build the v2 image
+
+    docker build -t <YourRegistryName>/express:v2 .
+
+## push the image
+
+    docker push <YourRegistryName>/express:v2
+
+## Docker Hub
+
+Back in hub.docker.com, locate the image you just pushed.
+
+## Remove the local image
+
+    docker rmi <YourRegistryName>/express:v2
+
+## Pull the image
+
+    docker pull <YourRegistryName>/express:v1
+
+## Cleanup
+
+    docker rmi <YourRegistryName>/express:v1
+    docker rmi <YourRegistryName>/express:v2
