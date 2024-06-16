@@ -12,5 +12,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  hostPath:
+  hostPath: # can use to test locally
     path: "/data/"
