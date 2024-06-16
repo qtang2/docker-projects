@@ -11,5 +11,5 @@ spec:
           containers:
           - name: busybox
             image: busybox
-            command: ["echo", "Hello from the CronJob"]
+            command: ["echo", "Hello from the CronJob"] # echo is linux cmd to print things in terminal
           restartPolicy: Never
