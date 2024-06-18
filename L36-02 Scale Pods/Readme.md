@@ -72,4 +72,4 @@ Press **Ctrl-C** to terminate the loop and type **exit** to terminate the busybo
 
 Optionally, delete the Metrics Server
 
-    kubectl delete -f components.yaml
+    kubectl delete -f components.yaml 
